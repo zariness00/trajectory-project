@@ -126,11 +126,28 @@ def download_collection(
             # Don't crash the whole batch if one trajectory fails — log and continue
             print(f"\n  ! Failed {agent_run_id}: {e}")
 
-            
-if __name__ == "__main__":
-    CLAUDE_45_OPUS = "b038912e-0133-4594-b093-92806f8ffb17"
-    PROJECT_ROOT = Path(__file__).resolve().parent.parent
-    output_dir = PROJECT_ROOT / "data" / "trajectories" / "claude-4-5-opus-high"
 
-    # Full download — all 500 trajectories
-    download_collection(CLAUDE_45_OPUS, output_dir)
+# First run: download the 500 trajectories from the "claude-4-5-opus-high" collection
+# if __name__ == "__main__":
+#     CLAUDE_45_OPUS = "b038912e-0133-4594-b093-92806f8ffb17"
+#     PROJECT_ROOT = Path(__file__).resolve().parent.parent
+#     output_dir = PROJECT_ROOT / "data" / "trajectories" / "claude-4-5-opus-high"
+
+#     # Full download — all 500 trajectories
+#     download_collection(CLAUDE_45_OPUS, output_dir)
+
+if __name__ == "__main__":
+    PROJECT_ROOT = Path(__file__).resolve().parent.parent
+    collections = {
+        "claude-4-5-opus-high": "b038912e-0133-4594-b093-92806f8ffb17",
+        "gemini-3-flash-high": "1ebbdd7a-55b3-4015-9b83-5978cc7fb618",
+        "minimax-m2-5-high":   "5b77e003-7328-4003-879e-9b55dd3a0b6f",
+        "claude-4-6-opus":     "9243cc78-d399-402f-be97-e366ff63282c",
+        "gpt-5-2-codex":       "fb22a2e4-0a41-4d41-8e1e-388d4cb50d80",
+    }
+
+    for name, collection_id in collections.items():
+        print(f"\n{name}: ")
+        output_dir = PROJECT_ROOT / "data" / "trajectories" / name
+        download_collection(collection_id, output_dir)
+
