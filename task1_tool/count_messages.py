@@ -106,5 +106,3 @@ if __name__ == "__main__":
 # "при анализе посмотреть отношение tool/assistant — оно намекает на использование параллельных tool_calls"
 # assistant messages (912a0729) contain multiple parallel tool_calls, 
 # the ratio of tool messages to assistant messages can hint at how much parallelism is happening.
-#  If the ratio is close to 1, it suggests that most assistant messages are followed by one tool call. 
-# If the ratio is higher, it indicates that many assistant messages are triggering multiple parallel tool calls.

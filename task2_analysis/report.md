@@ -5,6 +5,7 @@ This report analyzes 2,500 trajectories (500 per model) from the top-5 models on
 - trajectory length
 - tool_call usage
 - failure modes
+
 The task-1 tool was extended to additionally extract `resolved`, `instance_cost`, and `exit_status` from each trajectory's metadata.
 
 ## Methods
