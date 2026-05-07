@@ -23,15 +23,6 @@ This matches the Docent UI's "Minimap (N messages)" metric.
 | claude-4-6-opus | 75.6% | 1.6% | 49 | 145 | 288 | 1.03 | $275.76 | $0.73 |
 | gpt-5-2-codex | 72.8% | 0.0% | 65 | 141 | 251 | 1.02 | $236.78 | $0.65 |
 
-# Key observations
-
-1. Cost for a resolved task varies 10 times. For example, MiniMax costs 0.10 usd, while Claude 4.5 Opus costs 0.98 USD during the similar resolving rate(about 76 percent). 
-This is revelaed when the trajectories and metadata are retrieved together. Moreover, pass or fail score is not shown in the leaderboard.
-2. The style of reasoning is very different: median length 49-65 for Claude 4.6/GPT 5.2 vs 105-109 for MiniMax/Gemini. There is a ~2× difference. Note that shorter trajectories don't necessarily mean more successful (Claude 4.6 has the shortest median of 49 but not the highest resolve rate). Thus,  Claude models и GPT solve the task in approximately 50-65 steps, whereas Minimax solve the task in 105-109 steps. Meanhwile, the quality stays roughly the same. I believe, this is what the project states that models arrive to one concluding point but with different routes. 
-3. Failure modes различны при одинаковом ярлыке "LimitsExceeded": Claude'ы (1.4-1.6%) упираются в cost_limit ($3) при ~60-100 шагах; MiniMax (0.6%) упирается в step_limit (250) при копеечных тратах; Gemini и GPT — 0% LimitsExceeded вообще. Это качественное различие в том, как модели "сдаются", не видимое из агрегатов лидерборда.
-4. Использование параллельных tool_calls — стилистическое различие: ratio tool/assistant у Claude 4.5 составляет 1.14, у Claude 4.6 — 1.03, у GPT и Gemini ≈ 1.0, у MiniMax — тоже около 1.0. Это значит, mini-SWE-agent v2 в принципе допускает параллельные вызовы (раз Claude'ы это делают), но другие модели/обвязки выбирают строгий 1:1. Различие архитектурно-стилистическое.
-5. И p95 у MiniMax — 265, тоже сильно больше остальных (которые ~145-180). Это значит, что MiniMax "решает" задачи дёшево, но в его 5% худших случаев он гоняет очень долго.
-6. Claude 4.5 явно использует параллельные вызовы (на 14% больше tool-сообщений, чем assistant-ходов), а у Gemini и MiniMax ratio даже меньше единицы — это значит у них некоторые assistant-ходы вообще не сопровождаются tool call'ом (видимо, финальные размышления / submission). Это качественное различие в поведении агента, которое не видно по pass rate.
 
 ## Key observations
 
