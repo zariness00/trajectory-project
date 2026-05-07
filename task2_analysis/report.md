@@ -15,14 +15,13 @@ This matches the Docent UI's "Minimap (N messages)" metric.
 
 ## Comparison table
 
-model                          n | resolved pct | limits pct| median total| p95 total| max total| tool per assistant| total cost| cost per  resolved
-----------------------------------------------------------------------------------------------------------------------------------
-claude-4-5-opus-high           500    76.8%     1.4%      63     147   222   1.14 $ 376.95 $  0.98
-gemini-3-flash-high            500    75.8%     0.0%     109     181   319   0.98 $ 177.98 $  0.47
-minimax-m2-5-high              500    75.8%     0.6%     105     265   502   0.98 $  36.64 $  0.10
-claude-4-6-opus                500    75.6%     1.6%      49     145   288   1.03 $ 275.76 $  0.73
-gpt-5-2-codex                  500    72.8%     0.0%      65     141   251   1.02 $ 236.78 $  0.65
-
+| Model | Resolved | Limits | Median | p95 | Max | Tool/Asst | Total $ | $/Resolved |
+|---|---|---|---|---|---|---|---|---|
+| claude-4-5-opus-high | 76.8% | 1.4% | 63 | 147 | 222 | 1.14 | $376.95 | $0.98 |
+| gemini-3-flash-high | 75.8% | 0.0% | 109 | 181 | 319 | 0.98 | $177.98 | $0.47 |
+| minimax-m2-5-high | 75.8% | 0.6% | 105 | 265 | 502 | 0.98 | $36.64 | $0.10 |
+| claude-4-6-opus | 75.6% | 1.6% | 49 | 145 | 288 | 1.03 | $275.76 | $0.73 |
+| gpt-5-2-codex | 72.8% | 0.0% | 65 | 141 | 251 | 1.02 | $236.78 | $0.65 |
 
 # Key observations
 

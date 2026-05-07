@@ -9,3 +9,5 @@ data/trajectories/
 .DS_Store
 
 .env
+
+trajectory-project/task2_analysis/claude4_5.txt
